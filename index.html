@@ -119,7 +119,7 @@
                     if (!lives) {
                         alert("GAME OVER");
                         document.location.reload();
-                        clearInterval(interval);
+                        // clearInterval(interval);
                     }
                     else {
                         x = canvas.width / 2;
@@ -137,6 +137,8 @@
             else if (leftPressed) {
                 paddleX = Math.max(paddleX - 7, 0);
             }
+
+            requestAnimationFrame(draw);
         }
             
         document.addEventListener("keydown", keyDownHandler, false);
@@ -180,7 +182,7 @@
                             if (score === brickRowCount * brickColumnCount) {
                                 alert("YOU WIN, CONGRATULATIONS!");
                                 document.location.reload();
-                                clearInterval(interval);
+                                // clearInterval(interval);
                             }
                         }
                     }
@@ -200,7 +202,8 @@
             ctx.fillText(`Lives: ${lives}`, canvas.width - 65, 20)
         }
 
-        interval = setInterval(draw, 10);
+        // interval = setInterval(draw, 10);
+        draw();
 
         // function startGame(){
         //     setInterval(draw, 10);
